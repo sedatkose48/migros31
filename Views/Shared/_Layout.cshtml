@@ -1,20 +1,21 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - LunaMigrosProject</title>
+    <title>@ViewData["Title"] - Migros Stratejik Analiz</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    
+    <link rel="stylesheet" href="~/css/presentation.css" />
+
     <style>
         :root {
             --migros-orange: #FF8200;
             --migros-blue: #005DAA;
-            --bg-dark: #020617; /* Derin Koyu Arka Plan */
+            --bg-dark: #020617;
             --sidebar-width: 280px;
         }
 
@@ -26,30 +27,37 @@
             overflow-x: hidden;
         }
 
-        /* Hareketli Arka Plan Katmanı */
+        /* Hareketli Arka Plan */
         #particles-js { position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; pointer-events: none; }
 
-        /* Sidebar - Tamamen Sola Gizlenme */
+        /* Sidebar */
         #sidebar {
             position: fixed; top: 0; left: 0; height: 100vh; width: var(--sidebar-width);
             background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(15px);
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(15px);
+            border-right: 1px solid rgba(255, 255, 255, 0.08);
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 1050; overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255,130,0,0.3) transparent;
         }
         #sidebar.collapsed { transform: translateX(-100%); }
+        #sidebar::-webkit-scrollbar { width: 4px; }
+        #sidebar::-webkit-scrollbar-thumb { background: rgba(255,130,0,0.3); border-radius: 4px; }
 
-        /* Modern Toggle Butonu */
+        /* Toggle Butonu */
         #sidebarToggle {
             position: fixed; top: 25px; left: 25px; z-index: 1100;
             background: var(--migros-orange); border: none; color: white;
-            width: 48px; height: 48px; border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(255, 130, 0, 0.3);
+            width: 48px; height: 48px; border-radius: 14px;
+            box-shadow: 0 8px 25px rgba(255, 130, 0, 0.3);
             transition: all 0.3s ease; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem;
         }
         #sidebarToggle:hover { transform: scale(1.1); background: #fb923c; }
 
-        /* Ana İçerik Alanı */
+        /* Ana Alan */
         #main-wrapper {
             margin-left: var(--sidebar-width);
             transition: margin-left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -58,72 +66,145 @@
         }
         #main-wrapper.expanded { margin-left: 0; }
 
-        /* Navigasyon Linkleri */
-        .nav-link { 
-            color: #94a3b8; padding: 0.9rem 1.5rem; margin: 0.3rem 1rem; 
-            border-radius: 12px; display: flex; align-items: center; transition: 0.3s;
+        /* Nav Linkleri */
+        .nav-link {
+            color: #94a3b8; padding: 0.75rem 1.2rem; margin: 0.2rem 0.8rem;
+            border-radius: 12px; display: flex; align-items: center;
+            transition: all 0.3s ease; font-size: 0.82rem; font-weight: 500;
+            text-decoration: none;
         }
+        .nav-link i { font-size: 1rem; width: 22px; text-align: center; }
         .nav-link:hover { color: var(--migros-orange); background: rgba(255,255,255,0.05); }
-        .nav-link.active { background: var(--migros-orange) !important; color: white !important; box-shadow: 0 4px 15px rgba(255, 130, 0, 0.3); }
-        
-        .sidebar-logo { height: 40px; margin-bottom: 2rem; }
+        .nav-link.active {
+            background: linear-gradient(135deg, var(--migros-orange), #fb923c) !important;
+            color: white !important;
+            box-shadow: 0 4px 15px rgba(255, 130, 0, 0.3);
+            font-weight: 600;
+        }
+
+        .sidebar-logo { height: 38px; margin-bottom: 1rem; }
+        .sidebar-subtitle { color: #64748b; font-size: 0.7rem; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.5px; }
+        .sidebar-divider { height: 1px; background: rgba(255,255,255,0.06); margin: 0.8rem 1.2rem; }
+
+        /* Responsive Sidebar */
+        @@media (max-width: 768px) {
+            #sidebar { transform: translateX(-100%); }
+            #main-wrapper { margin-left: 0; padding: 1.5rem; }
+            #sidebar.show { transform: translateX(0); }
+        }
     </style>
 </head>
 <body>
     <div id="particles-js"></div>
-    
-    <button id="sidebarToggle"><i class="bi bi-list"></i></button>
 
-    <nav id="sidebar">
-        <div class="text-center py-5">
-            <img src="https://upload.wikimedia.org/wikipedia/tr/0/06/Migros_Logo.png" class="sidebar-logo">
-            <div class="px-3">
-                <h6 class="fw-bold text-white mb-0">Süreç Analizi</h6>
-                <small class="active">YBS2210 - Proje Sunumu</small>
+    <button id="sidebarToggle" aria-label="Menüyü aç/kapat"><i class="bi bi-x-lg"></i></button>
+
+    <nav id="sidebar" role="navigation" aria-label="Ana navigasyon">
+        <div class="text-center py-4">
+            <img src="https://upload.wikimedia.org/wikipedia/tr/0/06/Migros_Logo.png" class="sidebar-logo" alt="Migros Logo">
+            <div class="px-3 mt-2">
+                <h6 class="fw-bold text-white mb-1" style="font-size: 0.9rem;">Stratejik Süreç Analizi</h6>
+                <span class="sidebar-subtitle">YBS2210 - Proje Sunumu</span>
             </div>
         </div>
-        <div class="nav flex-column nav-pills mt-2">
-            <a class="nav-link active" href="#sec-1"><i class="bi bi-people me-2"></i> Ekip & Vizyon</a>
-            <a class="nav-link" href="#sec-2"><i class="bi bi-diagram-3 me-2"></i> SWOT Analizi</a>
-            <a class="nav-link" href="#sec-3"><i class="bi bi-table me-2"></i> TOWS Analizi</a>
-            <a class="nav-link" href="#sec-4"><i class="bi bi-map me-2"></i> MoSCoW Analizi</a>
-            <a class="nav-link" href="#sec-5"><i class="bi bi-map me-2"></i> Rice Puanlanması</a>
-            <a class="nav-link" href="#sec-6"><i class="bi bi-map me-2"></i> Süreç Sınırları & SIPOC Diyagramı</a>
-            <a class="nav-link" href="#sec-7"><i class="bi bi-map me-2"></i> AS-IS SÜREÇ HARİTASI</a>
-            <a class="nav-link" href="#sec-8"><i class="bi bi-map me-2"></i> BALIK KILÇIĞI</a>
-            <a class="nav-link" href="#sec-9"><i class="bi bi-map me-2"></i> 5 NEDEN TEKNİĞİ</a>
+        <div class="sidebar-divider"></div>
+        <div class="nav flex-column nav-pills mt-1 pb-4">
+            <a class="nav-link active" href="#sec-1"><i class="bi bi-people-fill me-2"></i> Ekip & Vizyon</a>
+            <a class="nav-link" href="#sec-2"><i class="bi bi-grid-3x3-gap-fill me-2"></i> SWOT Analizi</a>
+            <a class="nav-link" href="#sec-3"><i class="bi bi-arrows-angle-expand me-2"></i> TOWS Matrisi</a>
+            <a class="nav-link" href="#sec-4"><i class="bi bi-filter-square-fill me-2"></i> MoSCoW Analizi</a>
+            <a class="nav-link" href="#sec-5"><i class="bi bi-calculator-fill me-2"></i> RICE Puanlama</a>
+            <a class="nav-link" href="#sec-6"><i class="bi bi-diagram-2-fill me-2"></i> SIPOC Diyagramı</a>
+            <a class="nav-link" href="#sec-7"><i class="bi bi-share-fill me-2"></i> Balık Kılçığı</a>
+            <a class="nav-link" href="#sec-8"><i class="bi bi-search-heart me-2"></i> 5 Neden Tekniği</a>
         </div>
     </nav>
 
     <div id="main-wrapper">
         <main role="main">
-            @RenderBody() </main>
+            @RenderBody()
+        </main>
     </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 
     <script>
-        // Sidebar Toggle Mantığı
+        // Sidebar Toggle
         $('#sidebarToggle').click(function() {
-            $('#sidebar').toggleClass('collapsed');
-            $('#main-wrapper').toggleClass('expanded');
-            $(this).find('i').toggleClass('bi-list bi-x-lg');
+            var $sidebar = $('#sidebar');
+            var $wrapper = $('#main-wrapper');
+            if (window.innerWidth <= 768) {
+                $sidebar.toggleClass('show');
+            } else {
+                $sidebar.toggleClass('collapsed');
+                $wrapper.toggleClass('expanded');
+            }
+            $(this).find('i').toggleClass('bi-x-lg bi-list');
         });
 
-        // Parçacık Efekti Başlatma
+        // Parçacık Efekti
         particlesJS('particles-js', {
             particles: {
-                number: { value: 60, density: { enable: true, value_area: 800 } },
+                number: { value: 50, density: { enable: true, value_area: 900 } },
                 color: { value: '#FF8200' },
-                line_linked: { enable: true, distance: 150, color: '#FF8200', opacity: 0.1, width: 1 },
-                move: { enable: true, speed: 1.5 }
+                shape: { type: 'circle' },
+                opacity: { value: 0.3, random: true },
+                size: { value: 2, random: true },
+                line_linked: { enable: true, distance: 160, color: '#FF8200', opacity: 0.08, width: 1 },
+                move: { enable: true, speed: 1, direction: 'none', random: true, out_mode: 'out' }
+            },
+            interactivity: {
+                events: { onhover: { enable: true, mode: 'grab' } },
+                modes: { grab: { distance: 150, line_linked: { opacity: 0.2 } } }
             }
         });
 
-        mermaid.initialize({ startOnLoad: true, theme: 'dark', fontFamily: 'Inter' });
+        // Scroll Animasyonu (IntersectionObserver)
+        document.addEventListener('DOMContentLoaded', function() {
+            var sections = document.querySelectorAll('.fade-in-section');
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+
+            sections.forEach(function(section) { observer.observe(section); });
+
+            // Scroll Spy - Aktif Nav Link
+            var navLinks = document.querySelectorAll('#sidebar .nav-link');
+            var sectionEls = document.querySelectorAll('section[id]');
+
+            window.addEventListener('scroll', function() {
+                var scrollPos = window.scrollY + 200;
+                sectionEls.forEach(function(sec) {
+                    var top = sec.offsetTop;
+                    var bottom = top + sec.offsetHeight;
+                    var id = sec.getAttribute('id');
+                    if (scrollPos >= top && scrollPos < bottom) {
+                        navLinks.forEach(function(link) {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === '#' + id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            });
+
+            // Sidebar link tıklama - mobilde sidebar'ı kapat
+            navLinks.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        $('#sidebar').removeClass('show');
+                        $('#sidebarToggle i').removeClass('bi-list').addClass('bi-x-lg');
+                    }
+                });
+            });
+        });
     </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

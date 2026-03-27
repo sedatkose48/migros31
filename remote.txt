@@ -1,0 +1,2 @@
+origin	https://github.com/sedatkose48/LunaMigrosProject.git (fetch)
+origin	https://github.com/sedatkose48/LunaMigrosProject.git (push)

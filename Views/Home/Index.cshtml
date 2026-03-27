@@ -1,160 +1,20 @@
-﻿@{
+@{
     ViewData["Title"] = "Migros Stratejik Analiz";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<style>
-    /* CSS kodların (Daha önce yaptığımız premium, karanlık tema, balık kılçığı ve rice stilleri) aynen korundu. */
-    .section-card { background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 28px; padding: 3.5rem; margin-bottom: 3.5rem; transition: all 0.3s ease; position: relative; }
-    .section-card:hover { border-color: var(--migros-orange); transform: translateY(-5px); }
-    .section-title { font-weight: 800; color: white !important; letter-spacing: -0.02em; }
-    .section-card p.text-muted { color: #f1f5f9 !important; font-size: 0.95rem; line-height: 1.8; }
-    .badge-step { background: rgba(255, 130, 0, 0.2); color: var(--migros-orange); padding: 0.6rem 1.2rem; border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; }
-    .corporate-box { background: rgba(255, 255, 255, 0.05); border-left: 5px solid var(--migros-orange); padding: 2.5rem; border-radius: 0 20px 20px 0; transition: 0.3s; }
-    .corporate-box:hover { background: rgba(255, 255, 255, 0.08); }
-    .corporate-box h6 { color: white !important; }
-    .corporate-box p { color: #f1f5f9 !important; font-size: 0.9rem; }
-    .team-photo-container { position: relative; display: inline-block; transition: transform 0.4s ease; }
-    .team-photo-large { width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--migros-orange); padding: 6px; object-fit: cover; background: #020617; }
-    .team-member-card:hover .team-photo-container { transform: scale(1.1); }
-    .team-name { color: white !important; font-weight: 700; }
-    .team-role-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--migros-orange); background: rgba(255,130,0,0.15); padding: 5px 15px; border-radius: 25px; display: inline-block; margin-top: 10px; }
-    .swot-box-premium { background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 24px; padding: 2.8rem; height: 100%; transition: 0.3s; }
-    .swot-box-premium:hover { background: rgba(255, 255, 255, 0.03); transform: translateY(-5px); border-color: rgba(255,255,255,0.15); }
-    .swot-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 1rem; }
-    .swot-header h5 { color: white !important; font-weight: 700; margin: 0; }
-    .swot-icon-circle { width: 50px; height: 50px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
-    .bg-success-soft { background: rgba(25, 135, 84, 0.2); } .bg-danger-soft { background: rgba(220, 53, 69, 0.2); } .bg-info-soft { background: rgba(13, 202, 240, 0.2); } .bg-warning-soft { background: rgba(255, 193, 7, 0.2); }
-    .sw-list-premium { list-style: none; padding: 0; }
-    .sw-list-premium li { color: white !important; font-size: 0.92rem; margin-bottom: 1.2rem; padding-left: 25px; position: relative; line-height: 1.7; }
-    .sw-list-premium li::before { content: "•"; color: var(--migros-orange); position: absolute; left: 0; font-size: 1.6rem; line-height: 1.1; }
-    .swot-score-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #f1f5f9; background: rgba(255,255,255,0.05); padding: 5px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); }
-    .tows-card { background: rgba(15, 23, 42, 0.95); border-radius: 20px; padding: 2.5rem; height: 100%; border: 1px solid rgba(255, 255, 255, 0.08); transition: 0.3s; }
-    .tows-card:hover { transform: translateY(-5px); border-color: rgba(255, 255, 255, 0.15); }
-    .tows-tag { font-family: 'JetBrains Mono'; font-size: 0.7rem; padding: 4px 10px; border-radius: 6px; font-weight: 700; text-transform: uppercase; }
-    .so-border { border-top: 4px solid #198754; } .st-border { border-top: 4px solid #0dcaf0; } .wo-border { border-top: 4px solid #ffc107; } .wt-border { border-top: 4px solid #dc3545; }
-    .moscow-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; padding: 2rem; height: 100%; transition: 0.3s ease; text-align: center; }
-    .moscow-card:hover { transform: scale(1.05); background: rgba(255, 255, 255, 0.06); }
-    .moscow-icon { width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.4rem; color: white; }
-    .moscow-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 1px; }
-    .moscow-list { list-style: none; padding: 0; text-align: left; }
-    .moscow-list li { color: #f1f5f9; font-size: 0.8rem; margin-bottom: 0.8rem; position: relative; padding-left: 18px; line-height: 1.4; }
-    .moscow-list li::before { content: "•"; position: absolute; left: 0; color: var(--migros-orange); }
-    .m-must { border-bottom: 4px solid #198754; } .m-should { border-bottom: 4px solid #0dcaf0; } .m-could { border-bottom: 4px solid #ffc107; } .m-wont { border-bottom: 4px solid #dc3545; }
-    .table-rice-premium { width: 100%; border-collapse: separate; border-spacing: 0 10px; color: #ffffff !important; }
-    .table-rice-premium thead th { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--migros-orange) !important; padding: 1.5rem 1rem; border: none; background: rgba(255, 255, 255, 0.02); }
-    .table-rice-premium tbody tr { background: rgba(255, 255, 255, 0.04); transition: all 0.3s ease; }
-    .table-rice-premium tbody tr:hover { background: rgba(255, 255, 255, 0.08); transform: scale(1.005); }
-    .table-rice-premium td { padding: 1.5rem 1rem; border: none; vertical-align: middle; }
-    .rice-hypo-title { display: block; color: #ffffff !important; font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
-    .rice-hypo-desc { display: block; color: #94a3b8 !important; font-size: 0.8rem; line-height: 1.4; }
-    .rice-value { display: block; font-weight: 600; color: #f1f5f9; }
-    .rice-sublabel { display: block; font-size: 0.7rem; color: #64748b; margin-top: 2px; }
-    .badge-rice-score { font-family: 'JetBrains Mono', monospace; font-size: 1rem; padding: 0.6rem 1.2rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-    .fish-container { width: 100%; background: rgba(15, 23, 42, 0.4); border-radius: 30px; padding: 40px; display: flex; justify-content: center; border: 1px solid rgba(255, 255, 255, 0.05); overflow: hidden; }
-    .fish-svg { width: 100%; max-width: 1000px; height: auto; }
-    .spine { stroke: #475569; stroke-width: 6; stroke-linecap: round; }
-    .rib { stroke: #64748b; stroke-width: 4; stroke-linecap: round; opacity: 0.5; transition: 0.3s; }
-    .tail { fill: rgba(255, 130, 0, 0.1); stroke: #FF8200; stroke-width: 2; }
-    .problem-box { fill: #dc3545; stroke: white; stroke-width: 2.5; }
-    .problem-text { fill: white; font-weight: 800; font-size: 14px; text-anchor: middle; font-family: 'Inter', sans-serif; }
-    .head-part { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 2; transition: all 0.4s ease; }
-    .fish-head-group:hover .lower-jaw { transform: rotate(20deg); transform-origin: 205px 200px; }
-    .fish-head-group:hover .upper-head { transform: rotate(-8deg); transform-origin: 205px 200px; }
-    .rib-group:hover .rib { stroke: #FF8200; opacity: 1; stroke-width: 6; }
-    .rib-label { fill: white; font-weight: 800; font-size: 18px; font-family: 'Inter'; }
-    .rib-sub { fill: #94a3b8; font-size: 12px; font-style: italic; }
-    .why-container { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 24px; padding: 2.5rem; transition: 0.3s ease; }
-    .why-container:hover { border-color: var(--migros-orange); background: rgba(255, 255, 255, 0.04); }
-    .why-steps { display: flex; flex-direction: column; gap: 1rem; }
-    .why-item { font-size: 0.85rem; color: #94a3b8; padding: 1rem; background: rgba(255, 255, 255, 0.03); border-radius: 12px; position: relative; }
-    .why-item strong { color: #f1f5f9; margin-right: 5px; }
-    .root-cause { background: rgba(25, 135, 84, 0.15) !important; border: 1px solid rgba(25, 135, 84, 0.3); color: #34d399 !important; font-weight: 600; }
-    .sipoc-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 15px;
-}
-
-.sipoc-column {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    padding: 1.5rem 1rem;
-    transition: all 0.3s ease;
-}
-
-.sipoc-column:hover {
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(255, 255, 255, 0.1);
-    transform: translateY(-5px);
-}
-
-.process-column {
-    background: rgba(255, 130, 0, 0.05);
-    border: 1px solid rgba(255, 130, 0, 0.2);
-}
-
-.sipoc-col-header {
-    text-align: center;
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 800;
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.sipoc-item {
-    background: rgba(255, 255, 255, 0.04);
-    padding: 12px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    font-size: 0.82rem;
-    color: #cbd5e1;
-    border-left: 3px solid transparent;
-    transition: 0.2s;
-}
-
-.sipoc-column:nth-child(1) .sipoc-item { border-left-color: #ffc107; }
-.sipoc-column:nth-child(2) .sipoc-item { border-left-color: #0dcaf0; }
-.sipoc-column:nth-child(4) .sipoc-item { border-left-color: #198754; }
-.sipoc-column:nth-child(5) .sipoc-item { border-left-color: #0d6efd; }
-
-.sipoc-item:hover { background: rgba(255, 255, 255, 0.08); color: #fff; }
-
-.sipoc-process-item {
-    background: var(--migros-orange);
-    color: white;
-    text-align: center;
-    font-weight: 700;
-    font-size: 0.85rem;
-    padding: 12px 10px;
-    border-radius: 12px;
-    margin-bottom: 4px;
-    box-shadow: 0 4px 10px rgba(255, 130, 0, 0.3);
-}
-
-.sipoc-arrow {
-    text-align: center;
-    color: var(--migros-orange);
-    font-size: 1.5rem;
-    line-height: 1;
-    margin-bottom: 4px;
-}
-</style>
-
 <div class="container-fluid">
-    
-    <section id="sec-1" class="section-card">
-        <div class="d-flex justify-content-between align-items-center mb-5">
+
+    <!-- BÖLÜM I: Ekip & Vizyon -->
+    <section id="sec-1" class="section-card fade-in-section">
+        <div class="d-flex justify-content-between align-items-center mb-5 flex-wrap gap-3">
             <div>
                 <span class="badge-step">BÖLÜM I</span>
                 <h2 class="section-title mt-3">Kurumsal Kimlik & Entegre Strateji Raporu</h2>
             </div>
-            <img src="https://upload.wikimedia.org/wikipedia/tr/0/06/Migros_Logo.png" style="height: 50px; opacity: 0.9;">
+            <img src="https://upload.wikimedia.org/wikipedia/tr/0/06/Migros_Logo.png" style="height: 45px; opacity: 0.9;" alt="Migros Logo">
         </div>
-        
+
         <p class="text-muted mb-5">Bu rapor, Migros Ticaret A.Ş. için ayrı ayrı yürütülmüş dört stratejik analizi — SWOT, TOWS, MoSCoW ve RICE — tek bir karar çerçevesinde sentezlemektedir. Analizlerin merkezinde tek bir tema bulunmaktadır: <strong>Ürün kalitesi ve müşteri sağlığı.</strong></p>
 
         <div class="row g-4 mb-5">
@@ -167,49 +27,62 @@
             <div class="col-md-4">
                 <div class="corporate-box h-100">
                     <h6 class="fw-bold mb-3"><i class="bi bi-eye-fill me-2 text-warning"></i>Raporun Vizyonu</h6>
-                    <p class="small text-muted mb-0">SWOT ile durumu tespit etmek, TOWS ile eyleme dönüştürmek, MoSCoW ile önceliklendirmek ve RICE ile bu aksiyonları nicel olarak (ROI) kanıtlamaktır.</p>
+                    <p class="small mb-0">SWOT ile durumu tespit etmek, TOWS ile eyleme dönüştürmek, MoSCoW ile önceliklendirmek ve RICE ile bu aksiyonları nicel olarak (ROI) kanıtlamaktır.</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="corporate-box h-100">
                     <h6 class="fw-bold mb-3"><i class="bi bi-shield-check me-2 text-warning"></i>Kritik Hedef</h6>
-                    <p class="small text-muted mb-0">SKT geçmiş/bozuk ürün şikayetlerinin yarattığı "Çift Kırılganlık Döngüsünü" (W1+W2) kırarak %7.8 olan çözüm oranını artırmak.</p>
+                    <p class="small mb-0">SKT geçmiş/bozuk ürün şikayetlerinin yarattığı "Çift Kırılganlık Döngüsünü" (W1+W2) kırarak %7.8 olan çözüm oranını artırmak.</p>
                 </div>
             </div>
         </div>
 
         <div class="row row-cols-1 row-cols-md-4 g-5 text-center mt-5 justify-content-center">
             <div class="col team-member-card">
-                <div class="team-photo-container"><img src="/images/user1.jpg" class="team-photo-large shadow-lg"></div>
-                <h5 class="team-name mt-3">Ad Soyad</h5><div class="team-role-badge">Takım Lideri</div>
+                <div class="team-avatar-placeholder">
+                    <i class="bi bi-person-fill"></i>
+                </div>
+                <h5 class="team-name mt-3">Ad Soyad</h5>
+                <div class="team-role-badge">Takım Lideri</div>
             </div>
             <div class="col team-member-card">
-                <div class="team-photo-container"><img src="/images/user1.jpg" class="team-photo-large shadow-lg"></div>
-                <h5 class="team-name mt-3">Ad Soyad</h5><div class="team-role-badge">Süreç Analisti</div>
+                <div class="team-avatar-placeholder">
+                    <i class="bi bi-person-fill"></i>
+                </div>
+                <h5 class="team-name mt-3">Ad Soyad</h5>
+                <div class="team-role-badge">Süreç Analisti</div>
             </div>
-             <div class="col team-member-card">
-                <div class="team-photo-container"><img src="/images/user1.jpg" class="team-photo-large shadow-lg"></div>
-                <h5 class="team-name mt-3">Ad Soyad</h5><div class="team-role-badge">Veri Analisti</div>
+            <div class="col team-member-card">
+                <div class="team-avatar-placeholder">
+                    <i class="bi bi-person-fill"></i>
+                </div>
+                <h5 class="team-name mt-3">Ad Soyad</h5>
+                <div class="team-role-badge">Veri Analisti</div>
             </div>
-             <div class="col team-member-card">
-                <div class="team-photo-container"><img src="/images/user1.jpg" class="team-photo-large shadow-lg"></div>
-                <h5 class="team-name mt-3">Ad Soyad</h5><div class="team-role-badge">Kalite Yöneticisi</div>
+            <div class="col team-member-card">
+                <div class="team-avatar-placeholder">
+                    <i class="bi bi-person-fill"></i>
+                </div>
+                <h5 class="team-name mt-3">Ad Soyad</h5>
+                <div class="team-role-badge">Kalite Yöneticisi</div>
             </div>
         </div>
     </section>
 
-    <section id="sec-2" class="section-card">
-        <div class="d-flex justify-content-between align-items-center mb-5">
+    <!-- BÖLÜM II: SWOT Analizi -->
+    <section id="sec-2" class="section-card fade-in-section">
+        <div class="d-flex justify-content-between align-items-center mb-5 flex-wrap gap-3">
             <div>
                 <span class="badge-step">BÖLÜM II</span>
                 <h2 class="section-title mt-3">01. SWOT Analizi: Çift Kırılganlık Tespiti</h2>
             </div>
             <div class="swot-score-badge"><i class="bi bi-award me-1"></i> Puan: 10</div>
         </div>
-        
+
         <p class="text-muted mb-5">4.615 müşteri şikayeti ve pazar araştırmasına dayanan içsel-dışsal durum tespiti. Rapordaki <strong>"Çift Kırılganlık"</strong> (Yüksek Kalite Şikayeti + Düşük Çözüm Oranı) bu tablonun temel odak noktasıdır.</p>
 
-        <div class="row g-5">
+        <div class="row g-4">
             <div class="col-md-6">
                 <div class="swot-box-premium s-border">
                     <div class="swot-header">
@@ -272,8 +145,9 @@
         </div>
     </section>
 
-    <section id="sec-3" class="section-card">
-        <div class="d-flex justify-content-between align-items-center mb-5">
+    <!-- BÖLÜM III: TOWS Matrisi -->
+    <section id="sec-3" class="section-card fade-in-section">
+        <div class="d-flex justify-content-between align-items-center mb-5 flex-wrap gap-3">
             <div>
                 <span class="badge-step">BÖLÜM III</span>
                 <h2 class="section-title mt-3">02. TOWS Matrisi: Strateji Üretimi</h2>
@@ -337,8 +211,9 @@
         </div>
     </section>
 
-    <section id="sec-4" class="section-card">
-        <div class="d-flex justify-content-between align-items-center mb-5">
+    <!-- BÖLÜM IV: MoSCoW -->
+    <section id="sec-4" class="section-card fade-in-section">
+        <div class="d-flex justify-content-between align-items-center mb-5 flex-wrap gap-3">
             <div>
                 <span class="badge-step">BÖLÜM IV</span>
                 <h2 class="section-title mt-3">03. MoSCoW Analizi: Aksiyon Önceliklendirme</h2>
@@ -398,33 +273,34 @@
                     <p class="moscow-label text-danger">Şu An Öncelik Dışı</p>
                     <ul class="moscow-list">
                         <li><strong>C-3:</strong> Tedarikçi Kalite Skorkart Portalı (İç kalite sistemi oturmadan yapılamaz).</li>
-                        <li>Fiziksel raf m mimarisi devrimsel değişiklikleri.</li>
+                        <li>Fiziksel raf mimarisi devrimsel değişiklikleri.</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="sec-5" class="section-card">
-        <div class="d-flex justify-content-between align-items-center mb-5">
+    <!-- BÖLÜM V: RICE Puanlama -->
+    <section id="sec-5" class="section-card fade-in-section">
+        <div class="d-flex justify-content-between align-items-center mb-5 flex-wrap gap-3">
             <div>
                 <span class="badge-step">BÖLÜM V</span>
                 <h2 class="section-title mt-3">04. RICE Puanlama: Nicel Doğrulama</h2>
             </div>
-            <div class="swot-score-badge text-white"><i class="bi bi-calculator me-1"></i> Puan: 10</div>
+            <div class="swot-score-badge"><i class="bi bi-calculator me-1"></i> Puan: 10</div>
         </div>
 
-        <p class="text-muted mb-5">MoSCoW nitel sınıflandırmasının <strong>R = (Reach × Impact × Confidence) / Effort</strong> formülü ile matematiksel olarak kanıtlanmasıdır.</p>
+        <p class="text-muted mb-5">MoSCoW nitel sınıflandırmasının <strong>R = (Reach x Impact x Confidence) / Effort</strong> formülü ile matematiksel olarak kanıtlanmasıdır.</p>
 
         <div class="table-responsive">
             <table class="table-rice-premium">
                 <thead>
                     <tr>
                         <th style="border-radius: 12px 0 0 12px;">Sıra & Aksiyon</th>
-                        <th class="text-center">Reach <small>(Etkilenen Müşteri)</small></th>
-                        <th class="text-center">Impact <small>(Etki Gücü)</small></th>
-                        <th class="text-center">Confidence <small>(Güven %)</small></th>
-                        <th class="text-center">Effort <small>(Efor 1-10)</small></th>
+                        <th class="text-center">Reach</th>
+                        <th class="text-center">Impact</th>
+                        <th class="text-center">Confidence</th>
+                        <th class="text-center">Effort</th>
                         <th class="text-center" style="border-radius: 0 12px 12px 0;">RICE Skoru</th>
                     </tr>
                 </thead>
@@ -462,7 +338,7 @@
                         <td class="text-center"><span class="rice-value">3</span></td>
                         <td class="text-center" style="border-radius: 0 12px 12px 0;"><span class="badge bg-info badge-rice-score">733.333</span></td>
                     </tr>
-                     <tr>
+                    <tr>
                         <td style="border-radius: 12px 0 0 12px;">
                             <span class="rice-hypo-title">#4 (S-1) Kalite Taahhüdü & Taze Garanti</span>
                             <span class="rice-hypo-desc">TOWS: SO-1, ST-1 | Müşteriye koşulsuz taze garantisi.</span>
@@ -484,7 +360,7 @@
                         <td class="text-center"><span class="rice-value">7</span></td>
                         <td class="text-center" style="border-radius: 0 12px 12px 0;"><span class="badge bg-secondary badge-rice-score">321.429</span></td>
                     </tr>
-                     <tr>
+                    <tr>
                         <td style="border-radius: 12px 0 0 12px;">
                             <span class="rice-hypo-title">#6 (M-3) Şikayet Çözüm Kapasitesi</span>
                             <span class="rice-hypo-desc">TOWS: WO-2, WT-1 | RICE CLV'yi ölçemediği için düşük gözükür.</span>
@@ -495,7 +371,7 @@
                         <td class="text-center"><span class="rice-value">5</span></td>
                         <td class="text-center" style="border-radius: 0 12px 12px 0;"><span class="badge bg-warning text-dark badge-rice-score">256.000</span></td>
                     </tr>
-                     <tr>
+                    <tr>
                         <td style="border-radius: 12px 0 0 12px;">
                             <span class="rice-hypo-title">#7 (M-2) AI Destekli SKT Takip Sistemi</span>
                             <span class="rice-hypo-desc">TOWS: WO-1, WT-2 | Teknolojik yatırım gereksinimi (Yüksek Efor).</span>
@@ -506,7 +382,7 @@
                         <td class="text-center"><span class="rice-value">8</span></td>
                         <td class="text-center" style="border-radius: 0 12px 12px 0;"><span class="badge bg-dark badge-rice-score">180.000</span></td>
                     </tr>
-                     <tr>
+                    <tr>
                         <td style="border-radius: 12px 0 0 12px;">
                             <span class="rice-hypo-title">#8 (S-2) Personel Eğitim Programı</span>
                             <span class="rice-hypo-desc">TOWS: WO-4, WT-3 | İnsan hatasını minimize etme.</span>
@@ -528,127 +404,127 @@
             </p>
         </div>
     </section>
-    <section id="sec-6" class="section-card">
-    <div class="d-flex justify-content-between align-items-center mb-5">
-        <div>
-            <span class="badge-step">BÖLÜM VI</span>
-            <h2 class="section-title mt-3">SIPOC Analizi: Tedarikten Teslimata Süreç Haritası</h2>
-        </div>
-        <div class="swot-score-badge text-white">
-            <i class="bi bi-diagram-2 me-1"></i> Puan: 10
-        </div>
-    </div>
 
-    <p class="text-muted mb-5">
-        Migros'un SKT ve bozulmuş ürün problemleri, tedarikten teslimata uzanan süreç zincirinde analiz edilmiştir. Süreç girdileri, çıktıları ve iç/dış paydaşlar aşağıdaki gibi haritalanmıştır.
-    </p>
-
-    <div class="sipoc-grid mb-5">
-        <div class="sipoc-column">
-            <div class="sipoc-col-header text-warning">
-                <i class="bi bi-truck fs-4 d-block mb-2"></i> SUPPLIERS<br><small class="text-muted fw-normal">(Tedarikçiler)</small>
-            </div>
-            <div class="sipoc-item">Ürün Tedarikçileri</div>
-            <div class="sipoc-item">Lojistik Şirketler</div>
-            <div class="sipoc-item">Finans & IT Sistemleri</div>
-            <div class="sipoc-item">Analitik & Planlama Ekibi</div>
-        </div>
-
-        <div class="sipoc-column">
-            <div class="sipoc-col-header text-info">
-                <i class="bi bi-box-seam fs-4 d-block mb-2"></i> INPUTS<br><small class="text-muted fw-normal">(Girdiler)</small>
-            </div>
-            <div class="sipoc-item">Ürün Listesi (SKU DB)</div>
-            <div class="sipoc-item">Gelen Ürün Sevkiyatı</div>
-            <div class="sipoc-item">Sipariş Bilgi Fişleri</div>
-            <div class="sipoc-item">SKT & Veri Paylaşımı</div>
-            <div class="sipoc-item">Pazar Talep Tahminleri</div>
-        </div>
-
-        <div class="sipoc-column process-column">
-            <div class="sipoc-col-header text-white" style="border-bottom-color: var(--migros-orange);">
-                <i class="bi bi-gear-wide-connected fs-4 d-block mb-2" style="color: var(--migros-orange);"></i> PROCESS<br><small class="text-white-50 fw-normal">(Süreç Adımları)</small>
-            </div>
-            <div class="sipoc-process-item">1. Talep Tahmini</div>
-            <div class="sipoc-arrow"><i class="bi bi-arrow-down-short"></i></div>
-            <div class="sipoc-process-item">2. Ürün Tedariki</div>
-            <div class="sipoc-arrow"><i class="bi bi-arrow-down-short"></i></div>
-            <div class="sipoc-process-item position-relative" style="box-shadow: 0 0 15px rgba(220,53,69,0.5);">
-                3. Depo Kabul & Kontrol <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"></span>
-            </div>
-            <div class="sipoc-arrow"><i class="bi bi-arrow-down-short"></i></div>
-            <div class="sipoc-process-item position-relative" style="box-shadow: 0 0 15px rgba(220,53,69,0.5);">
-                4. Raf Yerleştirme
-            </div>
-            <div class="sipoc-arrow"><i class="bi bi-arrow-down-short"></i></div>
-            <div class="sipoc-process-item">5. Sipariş Toplama</div>
-            <div class="sipoc-arrow"><i class="bi bi-arrow-down-short"></i></div>
-            <div class="sipoc-process-item">6. Paketleme & Sevk</div>
-            <div class="sipoc-arrow"><i class="bi bi-arrow-down-short"></i></div>
-            <div class="sipoc-process-item">7. Teslimat</div>
-        </div>
-
-        <div class="sipoc-column">
-            <div class="sipoc-col-header text-success">
-                <i class="bi bi-clipboard-check fs-4 d-block mb-2"></i> OUTPUTS<br><small class="text-muted fw-normal">(Çıktılar)</small>
-            </div>
-            <div class="sipoc-item">Onaylı Ürün Stokları</div>
-            <div class="sipoc-item">Güncel Envanter Verisi</div>
-            <div class="sipoc-item">Filtrelenmiş Siparişler</div>
-            <div class="sipoc-item">Hareket & Satış Raporu</div>
-            <div class="sipoc-item">SKT Uyarı Listeleri</div>
-            <div class="sipoc-item">Teslimat Fişleri</div>
-        </div>
-
-        <div class="sipoc-column">
-            <div class="sipoc-col-header text-primary">
-                <i class="bi bi-people fs-4 d-block mb-2"></i> CUSTOMERS<br><small class="text-muted fw-normal">(Müşteriler)</small>
-            </div>
-            <div class="sipoc-item">Sanal Market Müşterisi</div>
-            <div class="sipoc-item">Fiziki Mağaza Müşterisi</div>
-            <div class="sipoc-item">Depo & Toplama Personeli</div>
-            <div class="sipoc-item">Veri Analisti / Strateji</div>
-            <div class="sipoc-item">AI Tahmin Sistemi (İç Müşteri)</div>
-        </div>
-    </div>
-
-    <div class="row g-4">
-        <div class="col-lg-6">
-            <div class="p-4 rounded-4 h-100" style="background: rgba(220, 53, 69, 0.1); border: 1px solid rgba(220, 53, 69, 0.3);">
-                <h6 class="fw-bold text-danger mb-3"><i class="bi bi-exclamation-triangle-fill me-2"></i>Stratejik Süreç Kırılma Noktası</h6>
-                <p class="small text-white opacity-75 mb-0">
-                    Bu SIPOC analizine göre en kritik kırılma noktası, <strong>Depo Kabul ve Raf Yerleştirme</strong> aşamasında ortaya çıkmaktadır. SKT kontrolü yetersiz olduğu için sorunlu ürünler zincire sızmaktadır. Barkod/RFID tabanlı SKT taraması devreye sokulmazsa bozuk ürün sevki önlenemez.
-                </p>
-            </div>
-        </div>
-        <div class="col-lg-6">
-            <div class="p-4 rounded-4 h-100" style="background: rgba(255, 193, 7, 0.05); border: 1px dashed rgba(255, 193, 7, 0.3);">
-                <h6 class="fw-bold text-warning mb-3"><i class="bi bi-sign-turn-right-fill me-2"></i>Kritik Handoff (Devir) Riskleri</h6>
-                <ul class="list-unstyled small text-white opacity-75 mb-0">
-                    <li class="mb-3">
-                        <strong class="text-white">Depo → Mağaza:</strong> SKT geçmiş ürünün hala envanterde gösterilmesi riski. (Önleyici: Çifte RFID kontrolü).
-                    </li>
-                    <li>
-                        <strong class="text-white">Sistem → Çalışan:</strong> Yazılım hatasıyla SKT atlanan ürünün manuel alınması riski. (Önleyici: Sipariş öncesi uyarı sistemi).
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-    <section id="sec-7" class="section-card">
-        <div class="d-flex justify-content-between align-items-center mb-5">
+    <!-- BÖLÜM VI: SIPOC -->
+    <section id="sec-6" class="section-card fade-in-section">
+        <div class="d-flex justify-content-between align-items-center mb-5 flex-wrap gap-3">
             <div>
                 <span class="badge-step">BÖLÜM VI</span>
-                <h2 class="section-title mt-3">İnteraktif Balık Kılçığı: Kök Nedenler</h2>
+                <h2 class="section-title mt-3">05. SIPOC Analizi: Tedarikten Teslimata Süreç Haritası</h2>
             </div>
-            <div class="swot-score-badge text-white"><i class="bi bi-fish-fill me-1"></i> Puan: 10</div>
+            <div class="swot-score-badge"><i class="bi bi-diagram-2 me-1"></i> Puan: 10</div>
+        </div>
+
+        <p class="text-muted mb-5">Migros'un SKT ve bozulmuş ürün problemleri, tedarikten teslimata uzanan süreç zincirinde analiz edilmiştir. Süreç girdileri, çıktıları ve iç/dış paydaşlar aşağıdaki gibi haritalanmıştır.</p>
+
+        <div class="sipoc-grid mb-5">
+            <div class="sipoc-column">
+                <div class="sipoc-col-header text-warning">
+                    <i class="bi bi-truck fs-4 d-block mb-2"></i> SUPPLIERS<br><small class="text-muted fw-normal">(Tedarikçiler)</small>
+                </div>
+                <div class="sipoc-item">Ürün Tedarikçileri</div>
+                <div class="sipoc-item">Lojistik Şirketler</div>
+                <div class="sipoc-item">Finans & IT Sistemleri</div>
+                <div class="sipoc-item">Analitik & Planlama Ekibi</div>
+            </div>
+
+            <div class="sipoc-column">
+                <div class="sipoc-col-header text-info">
+                    <i class="bi bi-box-seam fs-4 d-block mb-2"></i> INPUTS<br><small class="text-muted fw-normal">(Girdiler)</small>
+                </div>
+                <div class="sipoc-item">Ürün Listesi (SKU DB)</div>
+                <div class="sipoc-item">Gelen Ürün Sevkiyatı</div>
+                <div class="sipoc-item">Sipariş Bilgi Fişleri</div>
+                <div class="sipoc-item">SKT & Veri Paylaşımı</div>
+                <div class="sipoc-item">Pazar Talep Tahminleri</div>
+            </div>
+
+            <div class="sipoc-column process-column">
+                <div class="sipoc-col-header text-white" style="border-bottom-color: var(--migros-orange);">
+                    <i class="bi bi-gear-wide-connected fs-4 d-block mb-2" style="color: var(--migros-orange);"></i> PROCESS<br><small class="text-white-50 fw-normal">(Süreç Adımları)</small>
+                </div>
+                <div class="sipoc-process-item">1. Talep Tahmini</div>
+                <div class="sipoc-arrow"><i class="bi bi-arrow-down-short"></i></div>
+                <div class="sipoc-process-item">2. Ürün Tedariki</div>
+                <div class="sipoc-arrow"><i class="bi bi-arrow-down-short"></i></div>
+                <div class="sipoc-process-item position-relative" style="box-shadow: 0 0 15px rgba(220,53,69,0.5);">
+                    3. Depo Kabul & Kontrol <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"></span>
+                </div>
+                <div class="sipoc-arrow"><i class="bi bi-arrow-down-short"></i></div>
+                <div class="sipoc-process-item position-relative" style="box-shadow: 0 0 15px rgba(220,53,69,0.5);">
+                    4. Raf Yerleştirme
+                </div>
+                <div class="sipoc-arrow"><i class="bi bi-arrow-down-short"></i></div>
+                <div class="sipoc-process-item">5. Sipariş Toplama</div>
+                <div class="sipoc-arrow"><i class="bi bi-arrow-down-short"></i></div>
+                <div class="sipoc-process-item">6. Paketleme & Sevk</div>
+                <div class="sipoc-arrow"><i class="bi bi-arrow-down-short"></i></div>
+                <div class="sipoc-process-item">7. Teslimat</div>
+            </div>
+
+            <div class="sipoc-column">
+                <div class="sipoc-col-header text-success">
+                    <i class="bi bi-clipboard-check fs-4 d-block mb-2"></i> OUTPUTS<br><small class="text-muted fw-normal">(Çıktılar)</small>
+                </div>
+                <div class="sipoc-item">Onaylı Ürün Stokları</div>
+                <div class="sipoc-item">Güncel Envanter Verisi</div>
+                <div class="sipoc-item">Filtrelenmiş Siparişler</div>
+                <div class="sipoc-item">Hareket & Satış Raporu</div>
+                <div class="sipoc-item">SKT Uyarı Listeleri</div>
+                <div class="sipoc-item">Teslimat Fişleri</div>
+            </div>
+
+            <div class="sipoc-column">
+                <div class="sipoc-col-header text-primary">
+                    <i class="bi bi-people fs-4 d-block mb-2"></i> CUSTOMERS<br><small class="text-muted fw-normal">(Müşteriler)</small>
+                </div>
+                <div class="sipoc-item">Sanal Market Müşterisi</div>
+                <div class="sipoc-item">Fiziki Mağaza Müşterisi</div>
+                <div class="sipoc-item">Depo & Toplama Personeli</div>
+                <div class="sipoc-item">Veri Analisti / Strateji</div>
+                <div class="sipoc-item">AI Tahmin Sistemi (İç Müşteri)</div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="p-4 rounded-4 h-100" style="background: rgba(220, 53, 69, 0.1); border: 1px solid rgba(220, 53, 69, 0.3);">
+                    <h6 class="fw-bold text-danger mb-3"><i class="bi bi-exclamation-triangle-fill me-2"></i>Stratejik Süreç Kırılma Noktası</h6>
+                    <p class="small text-white opacity-75 mb-0">
+                        Bu SIPOC analizine göre en kritik kırılma noktası, <strong>Depo Kabul ve Raf Yerleştirme</strong> aşamasında ortaya çıkmaktadır. SKT kontrolü yetersiz olduğu için sorunlu ürünler zincire sızmaktadır. Barkod/RFID tabanlı SKT taraması devreye sokulmazsa bozuk ürün sevki önlenemez.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="p-4 rounded-4 h-100" style="background: rgba(255, 193, 7, 0.05); border: 1px dashed rgba(255, 193, 7, 0.3);">
+                    <h6 class="fw-bold text-warning mb-3"><i class="bi bi-sign-turn-right-fill me-2"></i>Kritik Handoff (Devir) Riskleri</h6>
+                    <ul class="list-unstyled small text-white opacity-75 mb-0">
+                        <li class="mb-3">
+                            <strong class="text-white">Depo - Mağaza:</strong> SKT geçmiş ürünün hala envanterde gösterilmesi riski. (Önleyici: Çifte RFID kontrolü).
+                        </li>
+                        <li>
+                            <strong class="text-white">Sistem - Çalışan:</strong> Yazılım hatasıyla SKT atlanan ürünün manuel alınması riski. (Önleyici: Sipariş öncesi uyarı sistemi).
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BÖLÜM VII: Balık Kılçığı -->
+    <section id="sec-7" class="section-card fade-in-section">
+        <div class="d-flex justify-content-between align-items-center mb-5 flex-wrap gap-3">
+            <div>
+                <span class="badge-step">BÖLÜM VII</span>
+                <h2 class="section-title mt-3">06. İnteraktif Balık Kılçığı: Kök Nedenler</h2>
+            </div>
+            <div class="swot-score-badge"><i class="bi bi-share-fill me-1"></i> Puan: 10</div>
         </div>
 
         <p class="text-muted mb-5">Ana problem olan <strong>"SKT'si Geçmiş / Düşük Kaliteli Ürünlerin Müşteriye Ulaşması"</strong> olgusunun 6 ana başlıkta haritalanması:</p>
 
         <div class="fish-container">
-            <svg viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg" class="fish-svg">
+            <svg viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg" class="fish-svg" role="img" aria-label="Balık Kılçığı Diyagramı - SKT Geçmiş Bozuk Ürün Kök Neden Analizi">
                 <line x1="200" y1="200" x2="700" y2="200" class="spine" />
                 <path d="M 700 200 L 770 130 Q 800 200 770 270 Z" class="tail" />
                 <text x="750" y="205" class="rib-label" style="font-size: 14px; text-anchor: middle;">YÖNETİM</text>
@@ -658,7 +534,7 @@
                     <text x="405" y="75" class="rib-label">SİSTEM (IT)</text>
                     <text x="250" y="130" class="rib-sub">Dinamik SKT Alarmı Yok</text>
                     <text x="280" y="110" class="rib-sub">Lot Takibi Eksik</text>
-                    
+
                     <line x1="500" y1="200" x2="600" y2="80" class="rib" />
                     <text x="605" y="75" class="rib-label">SÜREÇ / OPR.</text>
                     <text x="450" y="130" class="rib-sub">Omnichannel Çakışması</text>
@@ -689,13 +565,14 @@
         </div>
     </section>
 
-    <section id="sec-8" class="section-card">
-        <div class="d-flex justify-content-between align-items-center mb-5">
+    <!-- BÖLÜM VIII: 5 Neden -->
+    <section id="sec-8" class="section-card fade-in-section">
+        <div class="d-flex justify-content-between align-items-center mb-5 flex-wrap gap-3">
             <div>
-                <span class="badge-step">BÖLÜM VII</span>
-                <h2 class="section-title mt-3">5 Neden (5 Whys) Analizi</h2>
+                <span class="badge-step">BÖLÜM VIII</span>
+                <h2 class="section-title mt-3">07. 5 Neden (5 Whys) Analizi</h2>
             </div>
-            <div class="swot-score-badge text-white"><i class="bi bi-search me-1"></i> Puan: 10</div>
+            <div class="swot-score-badge"><i class="bi bi-search-heart me-1"></i> Puan: 10</div>
         </div>
 
         <div class="row g-4">
@@ -748,5 +625,10 @@
             </div>
         </div>
     </section>
+
+    <!-- Footer -->
+    <div class="presentation-footer">
+        <span>YBS2210</span> Stratejik Süreç Analizi - Migros Ticaret A.Ş. Proje Sunumu
+    </div>
 
 </div>
