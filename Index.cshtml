@@ -1,0 +1,720 @@
+@{
+    ViewData["Title"] = "Migros Stratejik Analiz";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+
+    <!-- BÖLÜM I: Ekip & Vizyon -->
+    <section id="sec-1" class="section-card fade-in-section">
+        <div class="d-flex justify-content-between align-items-center mb-5 flex-wrap gap-3">
+            <div>
+                <span class="badge-step">BÖLÜM I</span>
+                <h2 class="section-title mt-3">Kurumsal Kimlik & Entegre Strateji Raporu</h2>
+            </div>
+            <img src="https://upload.wikimedia.org/wikipedia/tr/0/06/Migros_Logo.png" style="height: 45px; opacity: 0.9;" alt="Migros Logo">
+        </div>
+
+        <p class="text-muted mb-5">Bu rapor, Migros Ticaret A.Ş. için ayrı ayrı yürütülmüş dört stratejik analizi — SWOT, TOWS, MoSCoW ve RICE — tek bir karar çerçevesinde sentezlemektedir. Analizlerin merkezinde tek bir tema bulunmaktadır: <strong>Ürün kalitesi ve müşteri sağlığı.</strong></p>
+
+        <div class="row g-4 mb-5">
+            <div class="col-md-4">
+                <div class="corporate-box h-100">
+                    <h6 class="fw-bold mb-3"><i class="bi bi-database-check me-2 text-warning"></i>Veri Temeli</h6>
+                    <p class="small mb-0">Raporumuz; Şikayetvar.com platformundan derlenen <strong>4.615 müşteri şikayeti</strong>, Türkiye perakende sektörü araştırmaları ve Migros kamuoyu beyanları üzerine inşa edilmiştir.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="corporate-box h-100">
+                    <h6 class="fw-bold mb-3"><i class="bi bi-eye-fill me-2 text-warning"></i>Raporun Vizyonu</h6>
+                    <p class="small mb-0">SWOT ile durumu tespit etmek, TOWS ile eyleme dönüştürmek, MoSCoW ile önceliklendirmek ve RICE ile bu aksiyonları nicel olarak (ROI) kanıtlamaktır.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="corporate-box h-100">
+                    <h6 class="fw-bold mb-3"><i class="bi bi-shield-check me-2 text-warning"></i>Kritik Hedef</h6>
+                    <p class="small mb-0">SKT geçmiş/bozuk ürün şikayetlerinin yarattığı "Çift Kırılganlık Döngüsünü" (W1+W2) kırarak %7.8 olan çözüm oranını artırmak.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-4 g-5 text-center mt-5 justify-content-center">
+            <div class="col team-member-card">
+                <div class="team-avatar-placeholder">
+                    <i class="bi bi-person-fill"></i>
+                </div>
+                <h5 class="team-name mt-3">Ad Soyad</h5>
+                <div class="team-role-badge">Takım Lideri</div>
+            </div>
+            <div class="col team-member-card">
+                <div class="team-avatar-placeholder">
+                    <i class="bi bi-person-fill"></i>
+                </div>
+                <h5 class="team-name mt-3">Ad Soyad</h5>
+                <div class="team-role-badge">Süreç Analisti</div>
+            </div>
+            <div class="col team-member-card">
+                <div class="team-avatar-placeholder">
+                    <i class="bi bi-person-fill"></i>
+                </div>
+                <h5 class="team-name mt-3">Ad Soyad</h5>
+                <div class="team-role-badge">Veri Analisti</div>
+            </div>
+            <div class="col team-member-card">
+                <div class="team-avatar-placeholder">
+                    <i class="bi bi-person-fill"></i>
+                </div>
+                <h5 class="team-name mt-3">Ad Soyad</h5>
+                <div class="team-role-badge">Kalite Yöneticisi</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BÖLÜM II: SWOT Analizi -->
+    <section id="sec-2" class="section-card fade-in-section">
+        <div class="d-flex justify-content-between align-items-center mb-5 flex-wrap gap-3">
+            <div>
+                <span class="badge-step">BÖLÜM II</span>
+                <h2 class="section-title mt-3">01. SWOT Analizi: Çift Kırılganlık Tespiti</h2>
+            </div>
+            <div class="swot-score-badge"><i class="bi bi-award me-1"></i> Puan: 10</div>
+        </div>
+
+        <p class="text-muted mb-5">4.615 müşteri şikayeti ve pazar araştırmasına dayanan içsel-dışsal durum tespiti. Rapordaki <strong>"Çift Kırılganlık"</strong> (Yüksek Kalite Şikayeti + Düşük Çözüm Oranı) bu tablonun temel odak noktasıdır.</p>
+
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="swot-box-premium s-border">
+                    <div class="swot-header">
+                        <div class="swot-icon-circle bg-success-soft text-success"><i class="bi bi-lightning-charge-fill"></i></div>
+                        <h5 class="fw-bold text-white mb-0">Güçlü Yönler (Strengths)</h5>
+                    </div>
+                    <ul class="sw-list-premium">
+                        <li>70+ yıllık marka tarihi, kurumsal güven ve Lovemark ödülü.</li>
+                        <li>3.720+ mağaza ile 81 ilde tam coğrafi kapsam.</li>
+                        <li>Migros One entegre dijital ekosistemi ve iştirakleri (Taze Direkt vb.).</li>
+                        <li>Her 2 müşteriden 1'inin üye olduğu Money sadakat programı.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="swot-box-premium w-border">
+                    <div class="swot-header">
+                        <div class="swot-icon-circle bg-danger-soft text-danger"><i class="bi bi-shield-slash-fill"></i></div>
+                        <h5 class="fw-bold text-white mb-0">Zayıf Yönler (Weaknesses)</h5>
+                    </div>
+                    <ul class="sw-list-premium">
+                        <li><strong>Kırılganlık 1:</strong> Ürün kalitesi şikayetlerinin toplam şikayete oranının %28,8 olması (SKT şikayetleri %7,4).</li>
+                        <li><strong>Kırılganlık 2:</strong> Şikayet çözüm oranının yalnızca %7,8'de kalması.</li>
+                        <li>Dijital-fiziksel kopukluk yaratan stok senkronizasyon hataları.</li>
+                        <li>Personel tutum tutarsızlıkları (586 şikayet) ve kampanya güvenilirliği.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="swot-box-premium o-border">
+                    <div class="swot-header">
+                        <div class="swot-icon-circle bg-info-soft text-info"><i class="bi bi-rocket-takeoff-fill"></i></div>
+                        <h5 class="fw-bold text-white mb-0">Fırsatlar (Opportunities)</h5>
+                    </div>
+                    <ul class="sw-list-premium">
+                        <li>Tüketicilerde gıda güvenliğine artan hassasiyet ve organik/yerel ürün talebi.</li>
+                        <li>%45'e ulaşan online market penetrasyonu ve 249 milyar TL'lik Q-ticaret pazarı.</li>
+                        <li>AI destekli kalite ve stok yönetim teknolojilerine erişim.</li>
+                        <li>Money verisiyle kişiselleştirilmiş müşteri deneyimi sunma fırsatı.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="swot-box-premium t-border">
+                    <div class="swot-header">
+                        <div class="swot-icon-circle bg-warning-soft text-warning"><i class="bi bi-exclamation-octagon-fill"></i></div>
+                        <h5 class="fw-bold text-white mb-0">Tehditler (Threats)</h5>
+                    </div>
+                    <ul class="sw-list-premium">
+                        <li>Şikayetvar/sosyal medya platformlarında viral itibar riski (Marka erozyonu).</li>
+                        <li>BİM/A101 gibi rakiplerin agresif fiyat rekabeti ve Getir hızı.</li>
+                        <li>Tarım Kredi Kooperatiflerinin taze ürün güveni konusundaki konumu.</li>
+                        <li>Gıda güvenliği mevzuatlarının yasal olarak sıkılaşması.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BÖLÜM III: TOWS Matrisi -->
+    <section id="sec-3" class="section-card fade-in-section">
+        <div class="d-flex justify-content-between align-items-center mb-5 flex-wrap gap-3">
+            <div>
+                <span class="badge-step">BÖLÜM III</span>
+                <h2 class="section-title mt-3">02. TOWS Matrisi: Strateji Üretimi</h2>
+            </div>
+            <div class="swot-score-badge"><i class="bi bi-gear-wide-connected me-1"></i> Puan: 10</div>
+        </div>
+
+        <p class="text-muted mb-5">SWOT'un pasif durum tespitini eyleme dönüştüren aşama. Rapor analizine göre ürün kalitesi merkezli <strong>WT ve WO</strong> kategorileri en yüksek aciliyeti taşımaktadır.</p>
+
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="tows-card wo-border">
+                    <div class="tows-header">
+                        <span class="tows-tag bg-warning text-dark">WO Stratejileri</span>
+                        <h6 class="fw-bold text-white mt-2">Fırsatlarla Zayıflıkları İyileştir</h6>
+                    </div>
+                    <ul class="sw-list-premium mt-3">
+                        <li><strong>(WO-1) AI Destekli SKT/Kalite Kontrolü:</strong> %7,4 SKT şikayetini (W) Yapay zeka teknolojileriyle (O) RFID/barkod tabanlı otomatik uyarı sistemine dönüştürme.</li>
+                        <li><strong>(WO-2) CRM Altyapısı Güçlendirme:</strong> %7,8'lik zayıf çözüm oranını (W), tüm kanalları birleştiren (Unified Inbox) ve 2-4 saat SLA veren yeni nesil CRM ile (O) çözme.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="tows-card wt-border">
+                    <div class="tows-header">
+                        <span class="tows-tag bg-danger text-white">WT Stratejileri</span>
+                        <h6 class="fw-bold text-white mt-2">Zayıflıkları ve Tehditleri Minimize Et</h6>
+                    </div>
+                    <ul class="sw-list-premium mt-3">
+                        <li><strong>(WT-1) Gıda Güvenliği Kriz Protokolü:</strong> Viral şikayet tehdidini (T), 2 saatlik müdahale SLA'sı ve anlık Şikayetvar/Sosyal Medya radar izlemesiyle engelleme.</li>
+                        <li><strong>(WT-2) SKT Sıfır Tolerans Politikası:</strong> Sistematik açıklar ve yasal denetim (T) riskine karşı her mağazaya "SKT Sorumlusu" atama ve IoT sıcaklık sensörleri kurma.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="tows-card so-border">
+                    <div class="tows-header">
+                        <span class="tows-tag bg-success text-white">SO Stratejileri</span>
+                        <h6 class="fw-bold text-white mt-2">Güçlü Yönlerle Fırsatları Yakala</h6>
+                    </div>
+                    <ul class="sw-list-premium mt-3">
+                        <li><strong>(SO-1) Kalite Taahhüdü & Taze Garanti:</strong> 70 yıllık kurumsal güveni (S), gıda güvenliği hassasiyetine (O) bağlayarak "SKT geçmiş üründe otomatik para iadesi + Puan" kampanyası.</li>
+                        <li><strong>(SO-4) Şeffaflık İletişimi:</strong> "Arkamızı Açıyoruz" kampanyası ve QR kodlu ürün tedarik zinciri izlenebilirliği sağlamak.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="tows-card st-border">
+                    <div class="tows-header">
+                        <span class="tows-tag bg-info text-white">ST Stratejileri</span>
+                        <h6 class="fw-bold text-white mt-2">Güçlü Yönlerle Tehditleri Bertaraf Et</h6>
+                    </div>
+                    <ul class="sw-list-premium mt-3">
+                        <li><strong>(ST-2) Money Sadakat Kalkanı:</strong> BİM'in fiyat ve Getir'in hız tehditlerine (T) karşı, Money sadakat programını (S) kullanarak Taze ürünlerde 2x puan ve Gold üyelere ücretsiz teslimat kalkanı kurma.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BÖLÜM IV: MoSCoW -->
+    <section id="sec-4" class="section-card fade-in-section">
+        <div class="d-flex justify-content-between align-items-center mb-5 flex-wrap gap-3">
+            <div>
+                <span class="badge-step">BÖLÜM IV</span>
+                <h2 class="section-title mt-3">03. MoSCoW Analizi: Aksiyon Önceliklendirme</h2>
+            </div>
+            <div class="swot-score-badge"><i class="bi bi-filter-square me-1"></i> Puan: 10</div>
+        </div>
+
+        <p class="text-muted mb-5">TOWS stratejilerinin <strong>(1) Sağlık Riski, (2) İtibar Riski, (3) Gelir Etkisi</strong> kriterlerine göre uygulanabilirlik sıralaması:</p>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="moscow-card m-must">
+                    <div class="moscow-icon bg-success"><i class="bi bi-star-fill"></i></div>
+                    <h6 class="fw-bold text-white">Must Have</h6>
+                    <p class="moscow-label text-success">0-60 Gün (Acil/Zorunlu)</p>
+                    <ul class="moscow-list">
+                        <li><strong>M-5:</strong> SKT Sıfır Tolerans Politikası (Sıfır Bütçe).</li>
+                        <li><strong>M-1:</strong> Gıda Güvenliği Kriz Protokolü (Asimetrik Hasar Engeli).</li>
+                        <li><strong>M-3:</strong> Şikayet Çözüm Kapasitesi (%92 kayıp engeli).</li>
+                        <li><strong>M-4:</strong> Gerçek Zamanlı Stok-Dijital Entegrasyonu.</li>
+                        <li><strong>M-2:</strong> AI SKT Takip Sistemi (Pilot).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="moscow-card m-should">
+                    <div class="moscow-icon bg-info"><i class="bi bi-check2-circle"></i></div>
+                    <h6 class="fw-bold text-white">Should Have</h6>
+                    <p class="moscow-label text-info">1-4 Ay (Gerekli)</p>
+                    <ul class="moscow-list">
+                        <li><strong>S-1:</strong> Kalite Taahhüdü & Taze Garanti (Fark Yaratan Değer).</li>
+                        <li><strong>S-5:</strong> Şeffaflık İletişimi Kampanyası ("Arkamızı Açıyoruz").</li>
+                        <li><strong>S-2:</strong> Tüm Personel Eğitim Programı.</li>
+                        <li><strong>S-3:</strong> Kampanya Stok Rezerv Mekanizması.</li>
+                        <li><strong>S-4:</strong> Money Bağlılık Otomasyonu (BİM/Getir kalkanı).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="moscow-card m-could">
+                    <div class="moscow-icon bg-warning"><i class="bi bi-plus-circle"></i></div>
+                    <h6 class="fw-bold text-white">Could Have</h6>
+                    <p class="moscow-label text-warning">4-12 Ay (Olabilir)</p>
+                    <ul class="moscow-list">
+                        <li><strong>C-1:</strong> Mobil Uygulamada SKT Filtresi (UX Farkı).</li>
+                        <li><strong>C-2:</strong> Taze Direkt Ölçeklendirmesi.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="moscow-card m-wont">
+                    <div class="moscow-icon bg-danger"><i class="bi bi-x-octagon"></i></div>
+                    <h6 class="fw-bold text-white">Won't Have</h6>
+                    <p class="moscow-label text-danger">Şu An Öncelik Dışı</p>
+                    <ul class="moscow-list">
+                        <li><strong>C-3:</strong> Tedarikçi Kalite Skorkart Portalı (İç kalite sistemi oturmadan yapılamaz).</li>
+                        <li>Fiziksel raf mimarisi devrimsel değişiklikleri.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BÖLÜM V: RICE Puanlama -->
+    <section id="sec-5" class="section-card fade-in-section">
+        <div class="d-flex justify-content-between align-items-center mb-5 flex-wrap gap-3">
+            <div>
+                <span class="badge-step">BÖLÜM V</span>
+                <h2 class="section-title mt-3">04. RICE Puanlama: Nicel Doğrulama</h2>
+            </div>
+            <div class="swot-score-badge"><i class="bi bi-calculator me-1"></i> Puan: 10</div>
+        </div>
+
+        <p class="text-muted mb-5">MoSCoW nitel sınıflandırmasının <strong>R = (Reach x Impact x Confidence) / Effort</strong> formülü ile matematiksel olarak kanıtlanmasıdır.</p>
+
+        <div class="table-responsive">
+            <table class="table-rice-premium">
+                <thead>
+                    <tr>
+                        <th style="border-radius: 12px 0 0 12px;">Sıra & Aksiyon</th>
+                        <th class="text-center">Reach</th>
+                        <th class="text-center">Impact</th>
+                        <th class="text-center">Confidence</th>
+                        <th class="text-center">Effort</th>
+                        <th class="text-center" style="border-radius: 0 12px 12px 0;">RICE Skoru</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border-radius: 12px 0 0 12px;">
+                            <span class="rice-hypo-title">#1 (M-5) SKT Sıfır Tolerans Politikası</span>
+                            <span class="rice-hypo-desc">TOWS: WT-2, WO-1 | Her mağazaya SKT sorumlusu.</span>
+                        </td>
+                        <td class="text-center"><span class="rice-value">2.000 K</span></td>
+                        <td class="text-center"><span class="rice-value">2</span></td>
+                        <td class="text-center"><span class="rice-value">%85</span></td>
+                        <td class="text-center"><span class="rice-value">2</span></td>
+                        <td class="text-center" style="border-radius: 0 12px 12px 0;"><span class="badge bg-success badge-rice-score">1.700.000</span></td>
+                    </tr>
+                    <tr>
+                        <td style="border-radius: 12px 0 0 12px;">
+                            <span class="rice-hypo-title">#2 (M-1) Gıda Güvenliği Kriz Protokolü</span>
+                            <span class="rice-hypo-desc">TOWS: WT-1, ST-1 | 2 saatlik özel müdahale SLA'sı.</span>
+                        </td>
+                        <td class="text-center"><span class="rice-value">2.000 K</span></td>
+                        <td class="text-center"><span class="rice-value">3</span></td>
+                        <td class="text-center"><span class="rice-value">%65</span></td>
+                        <td class="text-center"><span class="rice-value">3</span></td>
+                        <td class="text-center" style="border-radius: 0 12px 12px 0;"><span class="badge bg-success badge-rice-score">1.300.000</span></td>
+                    </tr>
+                    <tr>
+                        <td style="border-radius: 12px 0 0 12px;">
+                            <span class="rice-hypo-title">#3 (S-5) Şeffaflık İletişimi Kampanyası</span>
+                            <span class="rice-hypo-desc">TOWS: ST-1, WT-4 | Operasyonel iyileşmeyi görünür kılma.</span>
+                        </td>
+                        <td class="text-center"><span class="rice-value">4.000 K</span></td>
+                        <td class="text-center"><span class="rice-value">1</span></td>
+                        <td class="text-center"><span class="rice-value">%55</span></td>
+                        <td class="text-center"><span class="rice-value">3</span></td>
+                        <td class="text-center" style="border-radius: 0 12px 12px 0;"><span class="badge bg-info badge-rice-score">733.333</span></td>
+                    </tr>
+                    <tr>
+                        <td style="border-radius: 12px 0 0 12px;">
+                            <span class="rice-hypo-title">#4 (S-1) Kalite Taahhüdü & Taze Garanti</span>
+                            <span class="rice-hypo-desc">TOWS: SO-1, ST-1 | Müşteriye koşulsuz taze garantisi.</span>
+                        </td>
+                        <td class="text-center"><span class="rice-value">2.500 K</span></td>
+                        <td class="text-center"><span class="rice-value">2</span></td>
+                        <td class="text-center"><span class="rice-value">%65</span></td>
+                        <td class="text-center"><span class="rice-value">5</span></td>
+                        <td class="text-center" style="border-radius: 0 12px 12px 0;"><span class="badge bg-primary badge-rice-score">650.000</span></td>
+                    </tr>
+                    <tr>
+                        <td style="border-radius: 12px 0 0 12px;">
+                            <span class="rice-hypo-title">#5 (M-4) Gerçek Zamanlı Stok Entegrasyonu</span>
+                            <span class="rice-hypo-desc">TOWS: WO-3, ST-3 | Bağımlılık çarpanı gizli ana omurga.</span>
+                        </td>
+                        <td class="text-center"><span class="rice-value">1.500 K</span></td>
+                        <td class="text-center"><span class="rice-value">2</span></td>
+                        <td class="text-center"><span class="rice-value">%75</span></td>
+                        <td class="text-center"><span class="rice-value">7</span></td>
+                        <td class="text-center" style="border-radius: 0 12px 12px 0;"><span class="badge bg-secondary badge-rice-score">321.429</span></td>
+                    </tr>
+                    <tr>
+                        <td style="border-radius: 12px 0 0 12px;">
+                            <span class="rice-hypo-title">#6 (M-3) Şikayet Çözüm Kapasitesi</span>
+                            <span class="rice-hypo-desc">TOWS: WO-2, WT-1 | RICE CLV'yi ölçemediği için düşük gözükür.</span>
+                        </td>
+                        <td class="text-center"><span class="rice-value">800 K</span></td>
+                        <td class="text-center"><span class="rice-value">2</span></td>
+                        <td class="text-center"><span class="rice-value">%80</span></td>
+                        <td class="text-center"><span class="rice-value">5</span></td>
+                        <td class="text-center" style="border-radius: 0 12px 12px 0;"><span class="badge bg-warning text-dark badge-rice-score">256.000</span></td>
+                    </tr>
+                    <tr>
+                        <td style="border-radius: 12px 0 0 12px;">
+                            <span class="rice-hypo-title">#7 (M-2) AI Destekli SKT Takip Sistemi</span>
+                            <span class="rice-hypo-desc">TOWS: WO-1, WT-2 | Teknolojik yatırım gereksinimi (Yüksek Efor).</span>
+                        </td>
+                        <td class="text-center"><span class="rice-value">800 K</span></td>
+                        <td class="text-center"><span class="rice-value">3</span></td>
+                        <td class="text-center"><span class="rice-value">%60</span></td>
+                        <td class="text-center"><span class="rice-value">8</span></td>
+                        <td class="text-center" style="border-radius: 0 12px 12px 0;"><span class="badge bg-dark badge-rice-score">180.000</span></td>
+                    </tr>
+                    <tr>
+                        <td style="border-radius: 12px 0 0 12px;">
+                            <span class="rice-hypo-title">#8 (S-2) Personel Eğitim Programı</span>
+                            <span class="rice-hypo-desc">TOWS: WO-4, WT-3 | İnsan hatasını minimize etme.</span>
+                        </td>
+                        <td class="text-center"><span class="rice-value">1.000 K</span></td>
+                        <td class="text-center"><span class="rice-value">1</span></td>
+                        <td class="text-center"><span class="rice-value">%65</span></td>
+                        <td class="text-center"><span class="rice-value">6</span></td>
+                        <td class="text-center" style="border-radius: 0 12px 12px 0;"><span class="badge bg-dark badge-rice-score">108.333</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="mt-5 p-4 rounded-4" style="background: rgba(25, 135, 84, 0.1); border: 1px solid rgba(25, 135, 84, 0.3);">
+            <h6 class="fw-bold text-success mb-3"><i class="bi bi-check-circle-fill me-2"></i>Sıfır Maliyet, Maksimum Etki Prensibi</h6>
+            <p class="small text-white opacity-75 mb-0">
+                En yüksek RICE skoru, teknolojik bir sisteme değil; "Sıfır ek maliyet, yüksek güven (%85) ve geniş erişimin düşük eforla birleştiği" M-5 kodlu SKT raf denetim disiplinine aittir. Ayrıca M-4 (Stok Entegrasyonu) görünürde 5. sırada olsa da M-2 ve C-1 gibi projelerin teknik ön koşulu olduğu için "gizli bağımlılık çarpanı" barındırmaktadır.
+            </p>
+        </div>
+    </section>
+
+    <!-- BÖLÜM VI: SIPOC -->
+    <section id="sec-6" class="section-card fade-in-section">
+        <div class="d-flex justify-content-between align-items-center mb-5 flex-wrap gap-3">
+            <div>
+                <span class="badge-step">BÖLÜM VI</span>
+                <h2 class="section-title mt-3">05. SIPOC Analizi: Tedarikten Teslimata Süreç Haritası</h2>
+            </div>
+            <div class="swot-score-badge"><i class="bi bi-diagram-2 me-1"></i> Puan: 10</div>
+        </div>
+
+        <p class="text-muted mb-5">Migros'un SKT ve bozulmuş ürün problemleri, tedarikten teslimata uzanan süreç zincirinde analiz edilmiştir. Süreç girdileri, çıktıları ve iç/dış paydaşlar aşağıdaki gibi haritalanmıştır.</p>
+
+        <div class="sipoc-grid mb-5">
+            <div class="sipoc-column">
+                <div class="sipoc-col-header text-warning">
+                    <i class="bi bi-truck fs-4 d-block mb-2"></i> SUPPLIERS<br><small class="text-muted fw-normal">(Tedarikçiler)</small>
+                </div>
+                <div class="sipoc-item">Ürün Tedarikçileri</div>
+                <div class="sipoc-item">Lojistik Şirketler</div>
+                <div class="sipoc-item">Finans & IT Sistemleri</div>
+                <div class="sipoc-item">Analitik & Planlama Ekibi</div>
+            </div>
+
+            <div class="sipoc-column">
+                <div class="sipoc-col-header text-info">
+                    <i class="bi bi-box-seam fs-4 d-block mb-2"></i> INPUTS<br><small class="text-muted fw-normal">(Girdiler)</small>
+                </div>
+                <div class="sipoc-item">Ürün Listesi (SKU DB)</div>
+                <div class="sipoc-item">Gelen Ürün Sevkiyatı</div>
+                <div class="sipoc-item">Sipariş Bilgi Fişleri</div>
+                <div class="sipoc-item">SKT & Veri Paylaşımı</div>
+                <div class="sipoc-item">Pazar Talep Tahminleri</div>
+            </div>
+
+            <div class="sipoc-column process-column">
+                <div class="sipoc-col-header text-white" style="border-bottom-color: var(--migros-orange);">
+                    <i class="bi bi-gear-wide-connected fs-4 d-block mb-2" style="color: var(--migros-orange);"></i> PROCESS<br><small class="text-white-50 fw-normal">(Süreç Adımları)</small>
+                </div>
+                <div class="sipoc-process-item">1. Talep Tahmini</div>
+                <div class="sipoc-arrow"><i class="bi bi-arrow-down-short"></i></div>
+                <div class="sipoc-process-item">2. Ürün Tedariki</div>
+                <div class="sipoc-arrow"><i class="bi bi-arrow-down-short"></i></div>
+                <div class="sipoc-process-item position-relative" style="box-shadow: 0 0 15px rgba(220,53,69,0.5);">
+                    3. Depo Kabul & Kontrol <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"></span>
+                </div>
+                <div class="sipoc-arrow"><i class="bi bi-arrow-down-short"></i></div>
+                <div class="sipoc-process-item position-relative" style="box-shadow: 0 0 15px rgba(220,53,69,0.5);">
+                    4. Raf Yerleştirme
+                </div>
+                <div class="sipoc-arrow"><i class="bi bi-arrow-down-short"></i></div>
+                <div class="sipoc-process-item">5. Sipariş Toplama</div>
+                <div class="sipoc-arrow"><i class="bi bi-arrow-down-short"></i></div>
+                <div class="sipoc-process-item">6. Paketleme & Sevk</div>
+                <div class="sipoc-arrow"><i class="bi bi-arrow-down-short"></i></div>
+                <div class="sipoc-process-item">7. Teslimat</div>
+            </div>
+
+            <div class="sipoc-column">
+                <div class="sipoc-col-header text-success">
+                    <i class="bi bi-clipboard-check fs-4 d-block mb-2"></i> OUTPUTS<br><small class="text-muted fw-normal">(Çıktılar)</small>
+                </div>
+                <div class="sipoc-item">Onaylı Ürün Stokları</div>
+                <div class="sipoc-item">Güncel Envanter Verisi</div>
+                <div class="sipoc-item">Filtrelenmiş Siparişler</div>
+                <div class="sipoc-item">Hareket & Satış Raporu</div>
+                <div class="sipoc-item">SKT Uyarı Listeleri</div>
+                <div class="sipoc-item">Teslimat Fişleri</div>
+            </div>
+
+            <div class="sipoc-column">
+                <div class="sipoc-col-header text-primary">
+                    <i class="bi bi-people fs-4 d-block mb-2"></i> CUSTOMERS<br><small class="text-muted fw-normal">(Müşteriler)</small>
+                </div>
+                <div class="sipoc-item">Sanal Market Müşterisi</div>
+                <div class="sipoc-item">Fiziki Mağaza Müşterisi</div>
+                <div class="sipoc-item">Depo & Toplama Personeli</div>
+                <div class="sipoc-item">Veri Analisti / Strateji</div>
+                <div class="sipoc-item">AI Tahmin Sistemi (İç Müşteri)</div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="p-4 rounded-4 h-100" style="background: rgba(220, 53, 69, 0.1); border: 1px solid rgba(220, 53, 69, 0.3);">
+                    <h6 class="fw-bold text-danger mb-3"><i class="bi bi-exclamation-triangle-fill me-2"></i>Stratejik Süreç Kırılma Noktası</h6>
+                    <p class="small text-white opacity-75 mb-0">
+                        Bu SIPOC analizine göre en kritik kırılma noktası, <strong>Depo Kabul ve Raf Yerleştirme</strong> aşamasında ortaya çıkmaktadır. SKT kontrolü yetersiz olduğu için sorunlu ürünler zincire sızmaktadır. Barkod/RFID tabanlı SKT taraması devreye sokulmazsa bozuk ürün sevki önlenemez.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="p-4 rounded-4 h-100" style="background: rgba(255, 193, 7, 0.05); border: 1px dashed rgba(255, 193, 7, 0.3);">
+                    <h6 class="fw-bold text-warning mb-3"><i class="bi bi-sign-turn-right-fill me-2"></i>Kritik Handoff (Devir) Riskleri</h6>
+                    <ul class="list-unstyled small text-white opacity-75 mb-0">
+                        <li class="mb-3">
+                            <strong class="text-white">Depo - Mağaza:</strong> SKT geçmiş ürünün hala envanterde gösterilmesi riski. (Önleyici: Çifte RFID kontrolü).
+                        </li>
+                        <li>
+                            <strong class="text-white">Sistem - Çalışan:</strong> Yazılım hatasıyla SKT atlanan ürünün manuel alınması riski. (Önleyici: Sipariş öncesi uyarı sistemi).
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="sec-7" class="section-card">
+        <div class="d-flex justify-content-between align-items-center mb-5">
+            <div>
+                <span class="badge-step">BÖLÜM VIII</span>
+                <h2 class="section-title mt-3">AS-IS (Mevcut Durum) Süreç Haritası</h2>
+            </div>
+            <div class="swot-score-badge text-white">
+                <i class="bi bi-map-fill me-1"></i> Puan: 20
+            </div>
+        </div>
+
+        <p class="text-muted mb-5">
+            Migros Sanal Market ve fiziki mağaza operasyonlarının mevcut işleyişi, karar düğümleri (SKT Kontrolü, İkame Onayı) ve çıktılarıyla birlikte BPMN 2.0 standartlarında haritalanmıştır. Detayları incelemek için yakınlaştırabilirsiniz.
+        </p>
+
+        <div class="bpmn-svg-container position-relative shadow-lg">
+        
+            <div class="position-absolute top-0 start-0 m-3 z-3">
+                <span class="badge bg-dark border border-secondary text-light px-3 py-2 shadow">
+                    <i class="bi bi-arrows-move me-2 text-warning"></i> Kaydır ve Yakınlaştır
+                </span>
+            </div>
+
+            <div class="position-absolute top-0 end-0 m-3 z-3 d-flex gap-2 p-2 rounded-3 shadow" style="background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.1);">
+                <button class="btn btn-sm btn-outline-light zoom-btn" onclick="zoomImage(0.2)" title="Yakınlaştır">
+                    <i class="bi bi-zoom-in"></i>
+                </button>
+                <button class="btn btn-sm btn-outline-light zoom-btn" onclick="resetZoom()" title="Sıfırla">
+                    <i class="bi bi-arrow-counterclockwise"></i>
+                </button>
+                <button class="btn btn-sm btn-outline-light zoom-btn" onclick="zoomImage(-0.2)" title="Uzaklaştır">
+                    <i class="bi bi-zoom-out"></i>
+                </button>
+            </div>
+
+            <div class="svg-scroll-wrapper" id="scrollWrapper">
+                <img src="/images/svg.svg" alt="AS-IS BPMN Haritası" class="bpmn-image" id="bpmnSvgImage">
+            </div>
+        </div>
+
+        <div class="row g-4 mt-5">
+            <div class="col-md-4">
+                <div class="corporate-box h-100">
+                    <h6 class="fw-bold text-white small"><i class="bi bi-circle-fill text-success me-2"></i>Tetikleyiciler (Başlangıç)</h6>
+                    <p class="small text-white opacity-75 mb-0">Süreç iki koldan tetiklenmektedir: Online "Sipariş Alındı" ve "Mağazaya Girildi". İki farklı girişin aynı stok havuzunu kullanması (Omnichannel) ilk darboğazı oluşturur.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="corporate-box h-100">
+                    <h6 class="fw-bold text-white small"><i class="bi bi-diamond-fill text-warning me-2"></i>Karar Düğümleri (Gateways)</h6>
+                    <p class="small text-white opacity-75 mb-0">Diyagramdaki "SKT Geçmiş/Uygun" ayrımları, mevcut sistemde manuel yapıldığından sürecin hata payı en yüksek ve en yavaş kısımlarıdır.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="corporate-box h-100">
+                    <h6 class="fw-bold text-white small"><i class="bi bi-circle-fill text-danger me-2"></i>Kapanışlar (Bitiş)</h6>
+                    <p class="small text-white opacity-75 mb-0">Sevkiyat Tamamlandı veya Şikayet Kaydedildi gibi sonlanma olayları, süreçteki kalitenin doğrudan müşteri memnuniyetine veya iadeye dönüşümünü gösterir.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- BÖLÜM VII: Balık Kılçığı -->
+    <section id="sec-8" class="section-card fade-in-section">
+        <div class="d-flex justify-content-between align-items-center mb-5 flex-wrap gap-3">
+            <div>
+                <span class="badge-step">BÖLÜM VII</span>
+                <h2 class="section-title mt-3">06. İnteraktif Balık Kılçığı: Kök Nedenler</h2>
+            </div>
+            <div class="swot-score-badge"><i class="bi bi-share-fill me-1"></i> Puan: 10</div>
+        </div>
+
+        <p class="text-muted mb-5">Ana problem olan <strong>"SKT'si Geçmiş / Düşük Kaliteli Ürünlerin Müşteriye Ulaşması"</strong> olgusunun 6 ana başlıkta haritalanması:</p>
+
+        <div class="fish-container">
+            <svg viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg" class="fish-svg" role="img" aria-label="Balık Kılçığı Diyagramı - SKT Geçmiş Bozuk Ürün Kök Neden Analizi">
+                <line x1="200" y1="200" x2="700" y2="200" class="spine" />
+                <path d="M 700 200 L 770 130 Q 800 200 770 270 Z" class="tail" />
+                <text x="750" y="205" class="rib-label" style="font-size: 14px; text-anchor: middle;">YÖNETİM</text>
+
+                <g class="rib-group">
+                    <line x1="300" y1="200" x2="400" y2="80" class="rib" />
+                    <text x="405" y="75" class="rib-label">SİSTEM (IT)</text>
+                    <text x="250" y="130" class="rib-sub">Dinamik SKT Alarmı Yok</text>
+                    <text x="280" y="110" class="rib-sub">Lot Takibi Eksik</text>
+
+                    <line x1="500" y1="200" x2="600" y2="80" class="rib" />
+                    <text x="605" y="75" class="rib-label">SÜREÇ / OPR.</text>
+                    <text x="450" y="130" class="rib-sub">Omnichannel Çakışması</text>
+                    <text x="480" y="110" class="rib-sub">Plansız Reyon</text>
+                </g>
+
+                <g class="rib-group">
+                    <line x1="300" y1="200" x2="400" y2="320" class="rib" />
+                    <text x="405" y="340" class="rib-label">TEDARİK</text>
+                    <text x="240" y="270" class="rib-sub">Soğuk Zincir Kırılması</text>
+                    <text x="270" y="290" class="rib-sub">Yüzeysel Kalite Girişi</text>
+
+                    <line x1="500" y1="200" x2="600" y2="320" class="rib" />
+                    <text x="605" y="340" class="rib-label">İNSAN</text>
+                    <text x="450" y="270" class="rib-sub">Zaman & Hız Baskısı</text>
+                    <text x="480" y="290" class="rib-sub">Eğitim Yetersizliği</text>
+                </g>
+
+                <g class="fish-head-group">
+                    <path d="M 205 200 Q 200 100 100 180 L 205 200" class="head-part upper-head" />
+                    <path d="M 205 200 L 110 220 Q 180 280 205 200" class="head-part lower-jaw" />
+                    <circle cx="160" cy="175" r="5" fill="#020617" />
+                    <rect x="40" y="170" width="115" height="60" rx="10" class="problem-box" />
+                    <text x="97" y="195" class="problem-text">SKT GEÇMİŞ</text>
+                    <text x="97" y="215" class="problem-text">BOZUK ÜRÜN</text>
+                </g>
+            </svg>
+        </div>
+    </section>
+
+    <!-- BÖLÜM VIII: 5 Neden -->
+    <section id="sec-9" class="section-card fade-in-section">
+        <div class="d-flex justify-content-between align-items-center mb-5 flex-wrap gap-3">
+            <div>
+                <span class="badge-step">BÖLÜM VIII</span>
+                <h2 class="section-title mt-3">07. 5 Neden (5 Whys) Analizi</h2>
+            </div>
+            <div class="swot-score-badge"><i class="bi bi-search-heart me-1"></i> Puan: 10</div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="why-container h-100">
+                    <div class="why-header mb-4">
+                        <span class="badge bg-danger mb-2">Problem 1</span>
+                        <h6 class="fw-bold text-white">Müşteriye Bozuk/SKT Geçmiş Ürün Gidiyor</h6>
+                    </div>
+                    <div class="why-steps">
+                        <div class="why-item"><strong>1. Neden?</strong> Picker, fiziki kontrol yapmıyor.</div>
+                        <div class="why-item"><strong>2. Neden?</strong> Ciddi hız baskısı ve dakika/sepet kotası var.</div>
+                        <div class="why-item"><strong>3. Neden?</strong> Hızlı teslimat KPI'ı, kalite KPI'ından fazla ödüllendiriliyor.</div>
+                        <div class="why-item"><strong>4. Neden?</strong> Organizasyonel kapasiteyi aşan hızda sipariş yağıyor.</div>
+                        <div class="why-item root-cause"><i class="bi bi-bullseye me-2"></i><strong>Kök Neden:</strong> İnsan limitlerini yok sayan hatalı KPI tasarımı.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="why-container h-100">
+                    <div class="why-header mb-4">
+                        <span class="badge bg-danger mb-2">Problem 2</span>
+                        <h6 class="fw-bold text-white">Fiziki Mağazada SKT Kontrolü Başarısız</h6>
+                    </div>
+                    <div class="why-steps">
+                        <div class="why-item"><strong>1. Neden?</strong> Görevliler SKT'si gelen ürünü tespit edemiyor.</div>
+                        <div class="why-item"><strong>2. Neden?</strong> Günlük manuel kontroller atlanıyor.</div>
+                        <div class="why-item"><strong>3. Neden?</strong> ERP, personele otomatik görev/uyarı üretmiyor.</div>
+                        <div class="why-item"><strong>4. Neden?</strong> Mal kabulde parti/lot SKT verisi girilmiyor.</div>
+                        <div class="why-item root-cause"><i class="bi bi-hdd-network-fill me-2"></i><strong>Kök Neden:</strong> Uçtan uca dijital SKT izlenebilirlik sistemi yoksunluğu.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="why-container h-100">
+                    <div class="why-header mb-4">
+                        <span class="badge bg-danger mb-2">Problem 3</span>
+                        <h6 class="fw-bold text-white">Kısa Raf Ömürlü Üründe Kalite Kaybı</h6>
+                    </div>
+                    <div class="why-steps">
+                        <div class="why-item"><strong>1. Neden?</strong> Taze ürünler teslim edilmeden bozuluyor.</div>
+                        <div class="why-item"><strong>2. Neden?</strong> Kesintisiz soğuk zincir protokolü işletilmiyor.</div>
+                        <div class="why-item"><strong>3. Neden?</strong> Sepetler, oda sıcaklığında koridorlarda bekliyor.</div>
+                        <div class="why-item"><strong>4. Neden?</strong> Personel, dark store siparişini fiziki müşteri arasında toplayıp odak kaybediyor.</div>
+                        <div class="why-item root-cause"><i class="bi bi-diagram-2-fill me-2"></i><strong>Kök Neden:</strong> Omnichannel kaos (Aynı dar alanda farklı asimetrik operasyon).</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="presentation-footer">
+        <span>YBS2210</span> Stratejik Süreç Analizi - Migros Ticaret A.Ş. Proje Sunumu
+    </div>
+
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let currentScale = 1;
+        const minScale = 0.4;
+        const maxScale = 3.0;
+        const img = document.getElementById('bpmnSvgImage');
+
+        // Yakınlaştırma Fonksiyonu
+        window.zoomImage = function (step) {
+            if (img) {
+                currentScale += step;
+                if (currentScale > maxScale) currentScale = maxScale;
+                if (currentScale < minScale) currentScale = minScale;
+                img.style.transform = `scale(${currentScale})`;
+            }
+        };
+
+        // Sıfırlama Fonksiyonu
+        window.resetZoom = function () {
+            if (img) {
+                currentScale = 1;
+                img.style.transform = `scale(${currentScale})`;
+            }
+        };
+    });
+</script>
